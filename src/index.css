@@ -133,9 +133,9 @@ min-height: 100vh;
   }
 
 .item {
-  max-width: 300px;
+  max-width: 304px;
   display: flex;
-  width: 90%;
+
   justify-content: space-between;
   align-items: center;
   scrollbar-width: none;
@@ -180,7 +180,7 @@ width: 150px;
 height: 30px;
 margin: 0.1rem 0rem 0.1rem 1rem;
 color: white;
-background: linear-gradient(to right, #a87272, #833434);
+background: linear-gradient(to right, #531b1b, #3f2424);
 border-radius: 2rem;
 text-align: center;
 }
