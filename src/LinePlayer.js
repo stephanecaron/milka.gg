@@ -13,7 +13,7 @@ const LinePlayer = ({players, handleDelete}) => {
     <div className="CharacterPortraitEmpty"></div>
 ) : (
     <h5 className="CharacterPortrait"><img 
-        src={`http://localhost:3000/${players.playerCharacterValue}.png`}
+        src={`/${players.playerCharacterValue}.png`}
         alt="wat"
         width="30"
         height="30"/></h5>
