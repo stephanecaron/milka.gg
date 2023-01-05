@@ -2,8 +2,8 @@ import React from 'react'
 import LinePlayer from './LinePlayer'
 
 const PlayerList = ({players, handleDelete}) => {
-
-
+  // Sort players in ascending order based on playerSeedValue
+  players.sort((a, b) => a.playerSeedValue - b.playerSeedValue);
 
   return (
     <>
