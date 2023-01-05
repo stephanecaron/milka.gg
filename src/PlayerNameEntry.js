@@ -14,8 +14,9 @@ const inputRef= useRef();
 
   <form className='AddForm' onSubmit={handleSubmit}>
 
-    <label htmlFor='PlayerName'>Player Name: </label>
+    <div><div>{/* <label className="QuestionText" htmlFor='PlayerName'>Player Name: </label> */}
         <input
+            className="inputBox"
             autoFocus
             ref={inputRef}
             id='addPlayer'
@@ -28,30 +29,36 @@ const inputRef= useRef();
                 }
             }
 
-        />
-        <label htmlFor='PlayerCharacter'>Character: </label>
-        <select name="character" id="character"
+        /></div>
+
+<div> {/* <label className="QuestionText"  htmlFor='PlayerSeed'> Player Seed: </label> */}
+            <input
+                className="inputBox"
+                type='text'
+                required
+                placeholder='Add # Seed'
+                value={playerSeedValue}
+                onChange={(e) => {
+                    setPlayerSeedValue(e.target.value);
+
+                }}/></div>
+
+        <div>{/* <label className="QuestionText" htmlFor='PlayerCharacter'>Character: </label> */}
+        <select className="DropDown"
+        name="character" id="character"
         value={ playerCharacterValue  }
             onChange={(e) => {
                 setPlayerCharacterValue(e.target.value);
             }
             }   >
+            <option value="">Select Character</option>
             <option value="axl">Axl Low</option>
             <option value="ky">Ky Kiske</option>
             <option value="johnny">Johnny Sfondi</option>
             <option value="elphelt">Elphelt</option>
-        </select>
+        </select></div>
 
-        <label htmlFor='PlayerSeed'> Player Seed: </label>
-            <input
-                type='text'
-                required
-                placeholder='Add a numerical seed'
-                value={playerSeedValue}
-                onChange={(e) => {
-                    setPlayerSeedValue(e.target.value);
-
-                }}/>
+</div>
     
         <button className="SubmitButton"
            type='submit'

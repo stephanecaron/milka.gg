@@ -28,31 +28,37 @@ margin-top: 0.5rem;
 min-height: 100vh;
 }
 
+::placeholder {
+ color:rgb(224, 223, 223);
+ font-weight: bold;
+ font-style: italic;
 
+}
 .AddForm {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
     text-align: center;
-    padding: 0.5rem 0.5rem 1.2rem 0.5rem;
+    padding: 0.5rem 0 0.5rem 0;
     border-radius: 0.5rem;
     background: linear-gradient(180deg, rgba(168, 1, 1, 0.8), rgba(255,0,0,0) 60.71%),
             linear-gradient(90deg, rgba(136, 1, 1, 0.8), rgba(0,255,0,0) 70.71%),
             linear-gradient(270deg, rgba(156, 0, 0, 0.8), rgba(0,0,255,0) 70.71%),
             linear-gradient(0deg, rgba(156, 0, 0, 0.8), rgba(0,0,255,0) 70.71%);
     color:rgb(255, 255, 255);
-    max-width: 300px;
+    width: 20rem;
+    height: 120px;
     box-shadow: 2px 2px 2px black;
     margin-bottom: 0.2rem;
   }
 
-  .SubmitButton {
+
+  
+/*   .SubmitButton {
     margin-top: 0.5rem;
     margin-bottom: -0.8rem;
     height: 35px;
     width: 100px;
-  }
+  } */
 
   .Content {
     display: flex;
@@ -61,13 +67,69 @@ min-height: 100vh;
     justify-content: flex-start;
     align-items: left;
     height: 420px;
-    width:350px;
+    width:100%;
     overflow: auto;
     scrollbar-width: none;
   }
   
 ::-webkit-scrollbar {
     display: none;
+  }
+  
+
+  .SubmitButton {
+    appearance: none;
+    background-color: #D3D3D3;
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+    box-sizing: border-box;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 35px;
+    margin-left: 1.5rem;
+
+    padding: 6px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  
+  .SubmitButton:focus:not(:focus-visible):not(.focus-visible) {
+    box-shadow: none;
+    outline: none;
+  }
+  
+  .SubmitButton:hover {
+    background-color:  #9c9c9c;
+  }
+  
+  .SubmitButton:focus {
+    box-shadow: rgba(164, 46, 46, 0.4) 0 0 0 3px;
+    outline: none;
+  }
+  
+  .SubmitButton:disabled {
+    background-color: #94d3a2;
+    border-color: rgba(27, 31, 35, .1);
+    color: rgba(255, 255, 255, .8);
+    cursor: default;
+  }
+  
+
+  
+  .SubmitButton:active {
+    background-color: #298e46;
+    box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
   }
 
 .item {
@@ -113,11 +175,36 @@ align-items: center;
 text-shadow: 2px 2px 2px black;
 
 }
+.inputBox {
+width: 150px;
+height: 30px;
+margin: 0.1rem 0rem 0.1rem 1rem;
+color: white;
+background: linear-gradient(to right, #a87272, #833434);
+border-radius: 2rem;
+text-align: center;
+}
 
+.DropDown {
+  width: 150px;
+  height: 35px;
+  background: lightgrey;
+  border-radius: 2rem;
+  color: rgb(0, 0, 0);
+  margin: 0.1rem 0rem 0.1rem 1rem;
+  text-align: center;
+}
 .CharacterPortrait {
 box-shadow: 1px 2px 5px black;
-height: 30px;  
+height: 30px;
+width: 30px;  
 }
+
+.CharacterPortraitEmpty {
+  height: 30px;
+  width: 30px;  
+  }
+  
 
 .trashIcon {
 margin-right: 0px;

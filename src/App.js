@@ -40,6 +40,7 @@ function App() {
     addPlayer(/* playerNameValue, playerCharacterValue */)
     setPlayerNameValue('');
     setPlayerSeedValue('');
+    setPlayerCharacterValue('null');
   }
 
   const handleDelete = (id) => {
@@ -48,7 +49,7 @@ function App() {
   }
 
   const [playerNameValue, setPlayerNameValue] = useState('')
-  const [playerCharacterValue, setPlayerCharacterValue] = useState ('axl')
+  const [playerCharacterValue, setPlayerCharacterValue] = useState ('null')
   const [playerSeedValue, setPlayerSeedValue] = useState('')
  
   return (
