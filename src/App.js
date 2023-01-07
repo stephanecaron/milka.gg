@@ -1,31 +1,44 @@
 import './index.css';
 import PlayerNameEntry from './PlayerNameEntry';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Footer from './Footer';
 import Content from './Content';
+import { getAllPlayers, sendNewPlayer, deletePlayer } from './actions';
+
+const RaphireThing = async () => {
+  try {
+  const getAllData=await getAllPlayers()
+    return getAllData.data.playerList
+  } catch(error){}
+}
+
+
 function App() {
 
-  let playerList = []
-  if (localStorage.getItem('playerList')) {
-    playerList = JSON.parse(localStorage.getItem('playerList'))
-  }
+ const [players, setPlayers] = useState([])
+ 
+ useEffect(() => {
+  const fetchData = async () => {
+    const playerList=await RaphireThing();
+    return playerList  };
 
-  const [players, setPlayers] = useState(playerList)
+  fetchData().then((res)=> {
+  setPlayers(res)
+  })
+},[])
 
-/*   const [newPlayer, setNewPlayer] = useState ('') */
-/*   const [search, setSearch] = useState('') */
 
-  const setAndSavePlayers = (newPlayers) => {
-    setPlayers(newPlayers);
-    localStorage.setItem('playerList', JSON.stringify(newPlayers));
+  const setAndSavePlayers = (myNewPlayer) => {
+/*     localStorage.setItem('playerList', JSON.stringify(players)); */
   }
   
-  const addPlayer = () => {
-    const id = players.length ? players[players.length -1].id +1 : 1;
-    const myNewPlayer = {id, playerNameValue, playerCharacterValue, playerSeedValue};
-    const listPlayers = [...players, myNewPlayer];
-    setAndSavePlayers(listPlayers);
+  const addPlayer = async() => {
+    const myNewPlayer = {playerNameValue, playerCharacterValue, playerSeedValue};
+    const updatedPlayer = await sendNewPlayer(JSON.stringify(myNewPlayer));
+    setPlayers(updatedPlayer.data.playerList)
   }
+
+  
 
 /*   const addCharacter = () => {
     const id = players.length ? players[players.length -1].id +1 : 1;
@@ -43,9 +56,9 @@ function App() {
     setPlayerCharacterValue('null');
   }
 
-  const handleDelete = (id) => {
-    const listPlayers = players.filter((players) => players.id !== id);
-    setAndSavePlayers(listPlayers);
+  const handleDelete = async(id) => {
+    const updatedPlayer = await deletePlayer(id);
+    setPlayers(updatedPlayer.data.playerList)
   }
 
   const [playerNameValue, setPlayerNameValue] = useState('')
