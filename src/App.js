@@ -28,9 +28,7 @@ function App() {
 },[])
 
 
-  const setAndSavePlayers = (myNewPlayer) => {
-/*     localStorage.setItem('playerList', JSON.stringify(players)); */
-  }
+
   
   const addPlayer = async() => {
     const myNewPlayer = {playerNameValue, playerCharacterValue, playerSeedValue};
@@ -38,19 +36,12 @@ function App() {
     setPlayers(updatedPlayer.data.playerList)
   }
 
-  
 
-/*   const addCharacter = () => {
-    const id = players.length ? players[players.length -1].id +1 : 1;
-    const myNewPlayer = {id, playerCharacterValue};
-    const listPlayers = [...players, myNewPlayer];
-    setAndSavePlayers(listPlayers);
-  } */
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!playerNameValue) return;
-    addPlayer(/* playerNameValue, playerCharacterValue */)
+    addPlayer()
     setPlayerNameValue('');
     setPlayerSeedValue('');
     setPlayerCharacterValue('null');
