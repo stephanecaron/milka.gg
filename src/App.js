@@ -47,6 +47,7 @@ useEffect (() => {
 },[])
 
 console.log(realCharacterList)
+console.log('hi')
 
   const addPlayer = async() => {
     const myNewPlayer = {playerNameValue, playerCharacterValue, playerSeedValue};
