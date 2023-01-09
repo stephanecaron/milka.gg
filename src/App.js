@@ -12,24 +12,42 @@ const RaphireThing = async () => {
   } catch(error){}
 }
 
+const characterListFetch = async () => {
+  try {
+    const getCharacterData = await getAllPlayers()
+    return getCharacterData.data.characterList
+  } catch(error) {}
+}
+
 
 function App() {
 
  const [players, setPlayers] = useState([])
+ const [realCharacterList, setRealCharacterList] = useState([])
  
  useEffect(() => {
   const fetchData = async () => {
     const playerList=await RaphireThing();
     return playerList  };
+ 
 
   fetchData().then((res)=> {
   setPlayers(res)
   })
 },[])
 
+useEffect (() => {
+  const fetchCharacterData= async () => {
+    const characterList = await characterListFetch()
+    return characterList };
 
+    fetchCharacterData().then((res) => {
+      setRealCharacterList(res)
+    })
+},[])
 
-  
+console.log(realCharacterList)
+
   const addPlayer = async() => {
     const myNewPlayer = {playerNameValue, playerCharacterValue, playerSeedValue};
     const updatedPlayer = await sendNewPlayer(JSON.stringify(myNewPlayer));
