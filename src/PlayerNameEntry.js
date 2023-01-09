@@ -1,5 +1,6 @@
 import React from "react";
 import { useRef } from "react";
+import CharacterSelect from './CharacterSelect';
 
 const PlayerNameEntry = ({
   playerNameValue,
@@ -9,6 +10,7 @@ const PlayerNameEntry = ({
   setPlayerCharacterValue,
   playerSeedValue,
   setPlayerSeedValue,
+  realCharacterList,
 }) => {
   const inputRef = useRef();
 
@@ -60,8 +62,7 @@ const PlayerNameEntry = ({
           />
         </div>
 
-        <div>
-          {/* <label className="QuestionText" htmlFor='PlayerCharacter'>Character: </label> */}
+{/*         <div>
           <select
             className="DropDown"
             name="character"
@@ -77,6 +78,12 @@ const PlayerNameEntry = ({
             <option value="johnny">Johnny Sfondi</option>
             <option value="elphelt">Elphelt</option>
           </select>
+        </div> */}
+
+        <div>
+            <CharacterSelect
+                realCharacterList={realCharacterList}
+                setPlayerCharacterValue={setPlayerCharacterValue} />
         </div>
       </div>
 

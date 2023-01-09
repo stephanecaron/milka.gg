@@ -3,7 +3,7 @@ import PlayerNameEntry from './PlayerNameEntry';
 import { useState, useEffect } from 'react';
 import Footer from './Footer';
 import Content from './Content';
-import { getAllPlayers, sendNewPlayer, deletePlayer } from './actions';
+import { getAllPlayers, sendNewPlayer, deletePlayer,getAllCharacters } from './actions';
 
 const RaphireThing = async () => {
   try {
@@ -14,7 +14,7 @@ const RaphireThing = async () => {
 
 const characterListFetch = async () => {
   try {
-    const getCharacterData = await getAllPlayers()
+    const getCharacterData = await getAllCharacters()
     return getCharacterData.data.characterList
   } catch(error) {}
 }
@@ -46,8 +46,6 @@ useEffect (() => {
     })
 },[])
 
-console.log(characterListFetch())
-console.log(realCharacterList)
 
   const addPlayer = async() => {
     const myNewPlayer = {playerNameValue, playerCharacterValue, playerSeedValue};
@@ -63,7 +61,7 @@ console.log(realCharacterList)
     addPlayer()
     setPlayerNameValue('');
     setPlayerSeedValue('');
-    setPlayerCharacterValue('null');
+    setPlayerCharacterValue("");
   }
 
   const handleDelete = async(id) => {
@@ -85,6 +83,7 @@ console.log(realCharacterList)
         setPlayerNameValue={setPlayerNameValue}
         setPlayerSeedValue={setPlayerSeedValue}
         handleSubmit={handleSubmit}
+        realCharacterList={realCharacterList}
       />
       <Content
       players={players}
