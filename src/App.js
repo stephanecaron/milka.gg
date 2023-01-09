@@ -23,7 +23,7 @@ const characterListFetch = async () => {
 function App() {
 
  const [players, setPlayers] = useState([])
-/*  const [realCharacterList, setRealCharacterList] = useState([]) */
+ const [realCharacterList, setRealCharacterList] = useState([])
  
  useEffect(() => {
   const fetchData = async () => {
@@ -47,7 +47,7 @@ useEffect (() => {
 },[])
 
 console.log(characterListFetch())
-
+consloe.log(characterList)
 
   const addPlayer = async() => {
     const myNewPlayer = {playerNameValue, playerCharacterValue, playerSeedValue};
