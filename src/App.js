@@ -46,7 +46,7 @@ useEffect (() => {
     })
 },[])
 
-console.log(realCharacterList)
+/* console.log(realCharacterList) */
 console.log('hi')
 
   const addPlayer = async() => {
