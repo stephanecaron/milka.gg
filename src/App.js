@@ -28,7 +28,7 @@ function App() {
  useEffect(() => {
   const fetchData = async () => {
     const playerList=await RaphireThing();
-    return playerList  };
+    return playerList };
  
 
   fetchData().then((res)=> {
@@ -46,8 +46,8 @@ useEffect (() => {
     })
 },[])
 
-/* console.log(realCharacterList) */
-console.log('hi')
+console.log(characterListFetch())
+
 
   const addPlayer = async() => {
     const myNewPlayer = {playerNameValue, playerCharacterValue, playerSeedValue};
