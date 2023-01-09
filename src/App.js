@@ -47,7 +47,7 @@ useEffect (() => {
 },[])
 
 console.log(characterListFetch())
-consloe.log(characterList)
+console.log(characterList)
 
   const addPlayer = async() => {
     const myNewPlayer = {playerNameValue, playerCharacterValue, playerSeedValue};
