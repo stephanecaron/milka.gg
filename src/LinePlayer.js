@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaTrashAlt } from 'react-icons/fa';
+import PropTypes from 'prop-types'
 
 const LinePlayer = ({players, handleDelete}) => {
 
@@ -36,6 +37,11 @@ const LinePlayer = ({players, handleDelete}) => {
       />
     </li>
   )
+}
+
+LinePlayer.propTypes = {
+  players : PropTypes.array,
+  handleDelete : PropTypes.func,
 }
 
 export default LinePlayer

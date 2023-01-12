@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Footer = ({length, players, handleDelete}) => {
   //  const today = new Date(); 
@@ -15,6 +16,12 @@ const Footer = ({length, players, handleDelete}) => {
        
 </footer>
   )
+}
+
+Footer.propTypes = {
+  length : PropTypes.number,
+  players : PropTypes.array,
+  handleDelete : PropTypes.func,
 }
 
 export default Footer

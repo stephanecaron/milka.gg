@@ -1,12 +1,13 @@
 import React from "react";
 import { useRef } from "react";
 import CharacterSelect from './CharacterSelect';
+import PropTypes from 'prop-types'
 
 const PlayerNameEntry = ({
   playerNameValue,
   setPlayerNameValue,
   handleSubmit,
-  playerCharacterValue,
+/*   playerCharacterValue, */
   setPlayerCharacterValue,
   playerSeedValue,
   setPlayerSeedValue,
@@ -98,5 +99,15 @@ const PlayerNameEntry = ({
     </form>
   );
 };
+
+PlayerNameEntry.propTypes = {
+  playerNameValue : PropTypes.string,
+  setPlayerCharacterValue : PropTypes.string,
+  setPlayerNameValue : PropTypes.string,
+  handleSubmit : PropTypes.func,
+  playerSeedValue : PropTypes.number,
+  setPlayerSeedValue : PropTypes.number,
+  realCharacterList : PropTypes.array,
+}
 
 export default PlayerNameEntry;

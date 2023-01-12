@@ -1,5 +1,6 @@
 import './index.css';
 import PlayerNameEntry from './PlayerNameEntry';
+import React from 'react';
 import { useState, useEffect } from 'react';
 import Footer from './Footer';
 import Content from './Content';
@@ -9,16 +10,15 @@ const RaphireThing = async () => {
   try {
   const getAllData=await getAllPlayers()
     return getAllData.data.playerList
-  } catch(error){}
+  } catch(error){console.log(error)}
 }
 
 const characterListFetch = async () => {
   try {
     const getCharacterData = await getAllCharacters()
-    return getCharacterData.data.characterList
-  } catch(error) {}
+    return getCharacterData.data
+  } catch(error) {console.log(error)}
 }
-
 
 function App() {
 
@@ -54,14 +54,13 @@ useEffect (() => {
   }
 
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!playerNameValue) return;
     addPlayer()
     setPlayerNameValue('');
     setPlayerSeedValue('');
-    setPlayerCharacterValue("");
+    setPlayerCharacterValue('');
   }
 
   const handleDelete = async(id) => {
@@ -76,9 +75,6 @@ useEffect (() => {
   return (
     <div className="App">
       <PlayerNameEntry
-        playerNameValue={playerNameValue}
-        playerCharacterValue={playerCharacterValue}
-        playerSeedValue={playerSeedValue}
         setPlayerCharacterValue={setPlayerCharacterValue}
         setPlayerNameValue={setPlayerNameValue}
         setPlayerSeedValue={setPlayerSeedValue}
@@ -93,7 +89,7 @@ useEffect (() => {
       players={players} 
       handleDelete={handleDelete}
         />
-</div>
+    </div>
 );
 }
 

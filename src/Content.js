@@ -1,5 +1,6 @@
 import React from 'react'
 import PlayerList from './PlayerList'
+import PropTypes from 'prop-types'
 
 
 const Content = ({players, handleDelete}) => {
@@ -18,6 +19,11 @@ const Content = ({players, handleDelete}) => {
     )}
 </main>
   )
+}
+
+Content.propTypes = {
+  players : PropTypes.array,
+  handleDelete : PropTypes.func,
 }
 
 export default Content

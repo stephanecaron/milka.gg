@@ -1,5 +1,6 @@
 import React from 'react'
 import LinePlayer from './LinePlayer'
+import PropTypes from 'prop-types'
 
 const PlayerList = ({players, handleDelete}) => {
   // Sort players in ascending order based on playerSeedValue
@@ -19,5 +20,10 @@ const PlayerList = ({players, handleDelete}) => {
     </>
   );
 };
+
+PlayerList.propTypes = {
+  players : PropTypes.array,
+  handleDelete : PropTypes.func,
+}
 
 export default PlayerList;
