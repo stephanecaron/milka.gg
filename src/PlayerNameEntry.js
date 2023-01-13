@@ -102,11 +102,11 @@ const PlayerNameEntry = ({
 
 PlayerNameEntry.propTypes = {
   playerNameValue : PropTypes.string,
-  setPlayerCharacterValue : PropTypes.string,
-  setPlayerNameValue : PropTypes.string,
+  setPlayerCharacterValue : PropTypes.func,
+  setPlayerNameValue : PropTypes.func,
   handleSubmit : PropTypes.func,
   playerSeedValue : PropTypes.number,
-  setPlayerSeedValue : PropTypes.number,
+  setPlayerSeedValue : PropTypes.func,
   realCharacterList : PropTypes.array,
 }
 

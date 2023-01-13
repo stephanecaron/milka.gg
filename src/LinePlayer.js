@@ -40,7 +40,7 @@ const LinePlayer = ({players, handleDelete}) => {
 }
 
 LinePlayer.propTypes = {
-  players : PropTypes.array,
+  players : PropTypes.object,
   handleDelete : PropTypes.func,
 }
 

@@ -21,7 +21,7 @@ function CharacterSelect({realCharacterList, setPlayerCharacterValue}) {
 
 CharacterSelect.propTypes = {
   realCharacterList : PropTypes.array,
-  setPlayerCharacterValue : PropTypes.string,
+  setPlayerCharacterValue : PropTypes.func,
 }
 
 export default CharacterSelect;
