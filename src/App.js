@@ -9,7 +9,7 @@ import { getAllPlayers, sendNewPlayer, deletePlayer,getAllCharacters } from './a
 const RaphireThing = async () => {
   try {
   const getAllData=await getAllPlayers()
-    return getAllData.data.playerList
+    return getAllData.data
   } catch(error){console.log(error)}
 }
 
@@ -50,7 +50,7 @@ useEffect (() => {
   const addPlayer = async() => {
     const myNewPlayer = {playerNameValue, playerCharacterValue, playerSeedValue};
     const updatedPlayer = await sendNewPlayer(JSON.stringify(myNewPlayer));
-    setPlayers(updatedPlayer.data.playerList)
+    setPlayers(updatedPlayer.data)
   }
 
 
@@ -65,7 +65,7 @@ useEffect (() => {
 
   const handleDelete = async(id) => {
     const updatedPlayer = await deletePlayer(id);
-    setPlayers(updatedPlayer.data.playerList)
+    setPlayers(updatedPlayer.data)
   }
 
   const [playerNameValue, setPlayerNameValue] = useState('')
