@@ -105,9 +105,10 @@ PlayerNameEntry.propTypes = {
   setPlayerCharacterValue : PropTypes.func,
   setPlayerNameValue : PropTypes.func,
   handleSubmit : PropTypes.func,
-  playerSeedValue : PropTypes.number,
+  playerSeedValue : PropTypes.any,
   setPlayerSeedValue : PropTypes.func,
   realCharacterList : PropTypes.array,
+  playerCharacterValue : PropTypes.string,
 }
 
 export default PlayerNameEntry;

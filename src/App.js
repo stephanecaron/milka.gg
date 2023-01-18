@@ -46,11 +46,14 @@ useEffect (() => {
     })
 },[])
 
+const [playerNameValue, setPlayerNameValue] = useState('')
+const [playerCharacterValue, setPlayerCharacterValue] = useState ('')
+const [playerSeedValue, setPlayerSeedValue] = useState('')
 
   const addPlayer = async() => {
     const myNewPlayer = {playerNameValue, playerCharacterValue, playerSeedValue};
-    const updatedPlayer = await sendNewPlayer(JSON.stringify(myNewPlayer));
-    setPlayers(updatedPlayer.data)
+    await sendNewPlayer(myNewPlayer);
+    setPlayers(...players, myNewPlayer);
   }
 
 
@@ -68,13 +71,14 @@ useEffect (() => {
     setPlayers(updatedPlayer.data)
   }
 
-  const [playerNameValue, setPlayerNameValue] = useState('')
-  const [playerCharacterValue, setPlayerCharacterValue] = useState ('null')
-  const [playerSeedValue, setPlayerSeedValue] = useState('')
+
  
   return (
     <div className="App">
       <PlayerNameEntry
+        playerNameValue={playerNameValue}
+        playerSeedValue={playerSeedValue}
+        playerCharacterValue={playerCharacterValue}
         setPlayerCharacterValue={setPlayerCharacterValue}
         setPlayerNameValue={setPlayerNameValue}
         setPlayerSeedValue={setPlayerSeedValue}
