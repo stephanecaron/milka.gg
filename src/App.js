@@ -52,23 +52,28 @@ const [playerSeedValue, setPlayerSeedValue] = useState('')
 
   const addPlayer = async() => {
     const myNewPlayer = {playerNameValue, playerCharacterValue, playerSeedValue};
-    await sendNewPlayer(myNewPlayer);
-    setPlayers(...players, myNewPlayer);
+    console.log (myNewPlayer)
+    const playerID = await sendNewPlayer(myNewPlayer);
+    console.log(playerID.data)
+    myNewPlayer.id = playerID.data
+    setPlayers([...players, myNewPlayer]);
   }
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!playerNameValue) return;
-    addPlayer()
+    addPlayer();
     setPlayerNameValue('');
     setPlayerSeedValue('');
-    setPlayerCharacterValue('');
+    setPlayerCharacterValue(null);
   }
 
   const handleDelete = async(id) => {
-    const updatedPlayer = await deletePlayer(id);
-    setPlayers(updatedPlayer.data)
+    deletePlayer(id);
+    const newPlayers = players.filter(player =>  player.id !== id)
+    console.log (newPlayers)
+    setPlayers(newPlayers)
   }
 
 

@@ -9,7 +9,11 @@ export async function getAllCharacters () {
 } 
 
 export async function sendNewPlayer (myNewPlayer) { 
-    return await axios.post("http://localhost:8000/post", {data:myNewPlayer})
+    try {
+        return await axios.post("http://localhost:8000/post", {myNewPlayer});
+    } catch (error) {
+        console.error(error);
+    }
 } 
 
 export async function deletePlayer (playersid) { 
