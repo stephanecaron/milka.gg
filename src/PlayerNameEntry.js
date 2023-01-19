@@ -2,6 +2,9 @@ import React from "react";
 import { useRef } from "react";
 import CharacterSelect from './CharacterSelect';
 import PropTypes from 'prop-types'
+/* import { useParams } from "react-router-dom"; */
+
+
 
 const PlayerNameEntry = ({
   playerNameValue,
@@ -12,6 +15,7 @@ const PlayerNameEntry = ({
   playerSeedValue,
   setPlayerSeedValue,
   realCharacterList,
+
 }) => {
   const inputRef = useRef();
 
@@ -85,6 +89,9 @@ const PlayerNameEntry = ({
             <CharacterSelect
                 realCharacterList={realCharacterList}
                 setPlayerCharacterValue={setPlayerCharacterValue} />
+        </div>
+        <div>
+          playerId
         </div>
       </div>
 

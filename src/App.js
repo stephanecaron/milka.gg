@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import Footer from './Footer';
 import Content from './Content';
 import { getAllPlayers, sendNewPlayer, deletePlayer,getAllCharacters } from './actions';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const RaphireThing = async () => {
   try {
@@ -76,20 +77,28 @@ const [playerSeedValue, setPlayerSeedValue] = useState('')
     setPlayers(newPlayers)
   }
 
-
  
   return (
-    <div className="App">
-      <PlayerNameEntry
-        playerNameValue={playerNameValue}
-        playerSeedValue={playerSeedValue}
-        playerCharacterValue={playerCharacterValue}
-        setPlayerCharacterValue={setPlayerCharacterValue}
-        setPlayerNameValue={setPlayerNameValue}
-        setPlayerSeedValue={setPlayerSeedValue}
-        handleSubmit={handleSubmit}
-        realCharacterList={realCharacterList}
-      />
+    
+    <div className="App"> 
+      <BrowserRouter>
+        <Routes>
+          <Route path="id">
+            <Route path=":playerId" element={
+              <PlayerNameEntry
+                playerNameValue={playerNameValue}
+                playerSeedValue={playerSeedValue}
+                playerCharacterValue={playerCharacterValue}
+                setPlayerCharacterValue={setPlayerCharacterValue}
+                setPlayerNameValue={setPlayerNameValue}
+                setPlayerSeedValue={setPlayerSeedValue}
+                handleSubmit={handleSubmit}
+                realCharacterList={realCharacterList}
+              />
+            } />
+          </Route>
+        </Routes>
+      </BrowserRouter>
       <Content
       players={players}
       handleDelete={handleDelete}
@@ -97,7 +106,7 @@ const [playerSeedValue, setPlayerSeedValue] = useState('')
       <Footer length={players.length}
       players={players} 
       handleDelete={handleDelete}
-        />
+      />
     </div>
 );
 }
