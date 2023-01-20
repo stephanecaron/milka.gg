@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import Footer from './Footer';
 import Content from './Content';
 import { getAllPlayers, sendNewPlayer, deletePlayer,getAllCharacters } from './actions';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, /* useParams */ } from 'react-router-dom';
 
 const RaphireThing = async () => {
   try {
@@ -77,15 +77,16 @@ const [playerSeedValue, setPlayerSeedValue] = useState('')
     setPlayers(newPlayers)
   }
 
- 
+  function GetId() {
+   /*  let { userId } = useParams(); */
+    console.log('hi')
+  }
+
+  
   return (
     
     <div className="App"> 
-      <BrowserRouter>
-        <Routes>
-          <Route path="id">
-            <Route path=":playerId" element={
-              <PlayerNameEntry
+      <PlayerNameEntry
                 playerNameValue={playerNameValue}
                 playerSeedValue={playerSeedValue}
                 playerCharacterValue={playerCharacterValue}
@@ -95,6 +96,11 @@ const [playerSeedValue, setPlayerSeedValue] = useState('')
                 handleSubmit={handleSubmit}
                 realCharacterList={realCharacterList}
               />
+      <BrowserRouter>
+        <Routes>
+          <Route path="id">
+            <Route path=":playerId" element={ 
+              <GetId />
             } />
           </Route>
         </Routes>
@@ -103,6 +109,7 @@ const [playerSeedValue, setPlayerSeedValue] = useState('')
       players={players}
       handleDelete={handleDelete}
       />
+      
       <Footer length={players.length}
       players={players} 
       handleDelete={handleDelete}

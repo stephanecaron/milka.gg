@@ -90,9 +90,6 @@ const PlayerNameEntry = ({
                 realCharacterList={realCharacterList}
                 setPlayerCharacterValue={setPlayerCharacterValue} />
         </div>
-        <div>
-          playerId
-        </div>
       </div>
 
       <button
